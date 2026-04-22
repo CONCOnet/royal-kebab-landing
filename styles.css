@@ -163,7 +163,7 @@ ul, ol { list-style: none; }
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   background: transparent;
 }
 .site-header.scrolled {
@@ -275,7 +275,7 @@ body.no-scroll { overflow: hidden; }
   background: linear-gradient(to right, var(--bg), rgba(13, 13, 13, 0.85) 50%, rgba(13, 13, 13, 0.4));
 }
 .hero-overlay-y {
-  background: linear-gradient(to top, var(--bg), transparent 50%, rgba(13, 13, 13, 0.3));
+  background: linear-gradient(to top, var(--bg), transparent 50%, rgba(13, 13, 13, 0.85));
 }
 .hero-content {
   position: relative;
