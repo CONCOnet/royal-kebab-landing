@@ -220,6 +220,7 @@ ul, ol { list-style: none; }
   right: 0;
   height: 100%;
   width: 20rem;
+  z-index: 60;
   background: var(--bg);
   border-left: 1px solid var(--border-strong);
   padding: 6rem 2rem 2rem;
@@ -230,6 +231,19 @@ ul, ol { list-style: none; }
   display: block;
   transform: translateX(0);
 }
+.drawer-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  padding: 0.5rem;
+  color: var(--fg);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  line-height: 0;
+}
+.drawer-close:hover { color: var(--primary); }
+
 .mobile-drawer ul { display: flex; flex-direction: column; gap: 1.75rem; }
 .mobile-drawer a:not(.btn-primary) {
   display: block;
@@ -601,6 +615,68 @@ body.no-scroll { overflow: hidden; }
   transition: color 0.2s;
 }
 .menu-order:hover { color: var(--primary); }
+
+.menu-sizes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.875rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 0.75rem;
+}
+.size-row {
+  display: grid;
+  grid-template-columns: 2.25rem auto 0.5rem 1fr;
+  align-items: baseline;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+}
+.size-label {
+  font-weight: 800;
+  color: var(--fg);
+  letter-spacing: 0.05em;
+}
+.size-price {
+  font-weight: 800;
+  color: var(--primary);
+  font-size: 0.9375rem;
+}
+.size-sep { color: var(--fg-40); }
+.size-menu {
+  color: var(--fg-60);
+  font-weight: 600;
+}
+.menu-item-bottom-end {
+  justify-content: flex-end;
+  border-top: 0;
+  padding-top: 0.25rem;
+}
+
+.menu-toggle-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1.5rem auto 0;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background: transparent;
+  border: 1px solid var(--border-strong);
+  color: var(--fg-80);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.menu-toggle-all:hover {
+  color: var(--primary);
+  border-color: rgba(212, 17, 17, 0.5);
+  background: rgba(212, 17, 17, 0.08);
+}
+#menu-items { display: flex; flex-direction: column; align-items: stretch; }
+#menu-items .menu-toggle-all { align-self: center; }
 
 /* ============ HOURS & LOCATION ============ */
 .hours-grid {

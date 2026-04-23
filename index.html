@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="images/logo.png" />
   <link rel="apple-touch-icon" href="images/logo.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -54,22 +54,25 @@
         <svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </nav>
-
-    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
-      <ul>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#storia">La Nostra Storia</a></li>
-        <li><a href="#orari">Orari</a></li>
-        <li><a href="#contatti">Dove Siamo</a></li>
-        <li>
-          <a href="https://deliveroo.it/it/menu/bra/bra/royal-kebab-center" target="_blank" rel="noopener noreferrer" class="btn-primary btn-block">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            Ordina su Deliveroo
-          </a>
-        </li>
-      </ul>
-    </div>
   </header>
+
+  <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+    <button id="drawer-close" class="drawer-close" type="button" aria-label="Chiudi menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <ul>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#storia">La Nostra Storia</a></li>
+      <li><a href="#orari">Orari</a></li>
+      <li><a href="#contatti">Dove Siamo</a></li>
+      <li>
+        <a href="https://deliveroo.it/it/menu/bra/bra/royal-kebab-center" target="_blank" rel="noopener noreferrer" class="btn-primary btn-block">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Ordina su Deliveroo
+        </a>
+      </li>
+    </ul>
+  </div>
 
   <main>
     <!-- ========== HERO ========== -->
@@ -331,6 +334,6 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js?v=2"></script>
 </body>
 </html>

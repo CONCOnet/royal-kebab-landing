@@ -4,99 +4,121 @@ const DELIVEROO_URL = "https://deliveroo.it/it/menu/bra/bra/royal-kebab-center";
 const CATEGORIES = [
   { id: "tacos", label: "Tacos" },
   { id: "kebab", label: "Kebab" },
+  { id: "cosamia", label: "Cosamia" },
   { id: "burger", label: "Burger" },
+  { id: "pizze", label: "Pizze" },
+  { id: "familiari", label: "Familiari & Taglio" },
   { id: "fritti", label: "Fritti" },
   { id: "insalate", label: "Insalate" },
-  { id: "pizze", label: "Pizze" },
-  { id: "famiglia", label: "Familiari & Taglio" },
+  { id: "bibite", label: "Bibite & Extra" },
 ];
 
-const TACOS_MENU_DESC = "Tacos + bibita + patatine fritte";
-const KEBAB_MENU_DESC = "Panino + bibita + patatine fritte";
+const TACOS_MENU_DESC = "+ bibita + patatine fritte";
+const KEBAB_MENU_DESC = "+ bibita + patatine fritte";
+const PIATTO_MENU_DESC = "+ lattina";
+
+const tacosSizes = (L, Lm, XL, XLm, XXL, XXLm) => [
+  { label: "L",   price: L,   menuPrice: Lm },
+  { label: "XL",  price: XL,  menuPrice: XLm },
+  { label: "XXL", price: XXL, menuPrice: XXLm },
+];
 
 const MENU_ITEMS = [
   // TACOS
-  { id: "tacos-chicken", name: "Chicken", price: 5.0, menuPrice: 8.5, menuDescription: TACOS_MENU_DESC, category: "tacos" },
-  { id: "tacos-beef", name: "Beef", price: 5.0, menuPrice: 8.5, menuDescription: TACOS_MENU_DESC, category: "tacos" },
-  { id: "tacos-kebab", name: "Kebab", price: 5.0, menuPrice: 8.5, menuDescription: TACOS_MENU_DESC, category: "tacos" },
-  { id: "tacos-salsiccia", name: "Salsiccia", price: 5.0, menuPrice: 8.5, menuDescription: TACOS_MENU_DESC, category: "tacos" },
-  { id: "tacos-cordon-bleu", name: "Cordon Bleu", price: 5.0, menuPrice: 8.5, menuDescription: TACOS_MENU_DESC, category: "tacos" },
-  { id: "tacos-mixed", name: "Mixed Tacos", price: 5.6, menuPrice: 8.9, menuDescription: "Mixed tacos + bibita + patatine fritte", category: "tacos", highlight: true },
+  { id: "tacos-chicken",     name: "Chicken",     sizes: tacosSizes(6.5, 10.5, 8.5, 12.5, 10.5, 14.5), menuDescription: TACOS_MENU_DESC, category: "tacos" },
+  { id: "tacos-kofta",       name: "Kofta",       sizes: tacosSizes(6.5, 10.5, 8.5, 12.5, 10.5, 14.5), menuDescription: TACOS_MENU_DESC, category: "tacos" },
+  { id: "tacos-kebab",       name: "Kebab",       sizes: tacosSizes(6.5, 10.5, 8.5, 12.5, 10.5, 14.5), menuDescription: TACOS_MENU_DESC, category: "tacos" },
+  { id: "tacos-salsiccia",   name: "Salsiccia",   sizes: tacosSizes(6.5, 10.5, 8.5, 12.5, 10.5, 14.5), menuDescription: TACOS_MENU_DESC, category: "tacos" },
+  { id: "tacos-cordon-bleu", name: "Cordon Bleu", sizes: tacosSizes(6.5, 10.5, 8.5, 12.5, 10.5, 14.5), menuDescription: TACOS_MENU_DESC, category: "tacos" },
+  { id: "tacos-falafel",     name: "Falafel",     sizes: tacosSizes(6.5, 10.5, 8.5, 12.5, 10.5, 14.5), menuDescription: TACOS_MENU_DESC, category: "tacos" },
+  { id: "tacos-wurstel",     name: "Wurstel",     sizes: tacosSizes(6.5, 10.5, 8.5, 12.5, 10.5, 14.5), menuDescription: TACOS_MENU_DESC, category: "tacos" },
+  { id: "tacos-mixed",       name: "Mixed Tacos", sizes: tacosSizes(7.5, 11.5, 9.5, 13.5, 11.5, 15.5), menuDescription: TACOS_MENU_DESC, category: "tacos", highlight: true },
+  { id: "tacos-royal",       name: "Royal Tacos", description: "La specialità della casa", price: 11, menuPrice: 15, menuDescription: TACOS_MENU_DESC, category: "tacos", highlight: true },
 
-  // KEBAB
-  { id: "kebab-classico", name: "Classico", price: 5.0, menuPrice: 8.5, menuDescription: KEBAB_MENU_DESC, category: "kebab" },
-  { id: "kebab-arrotolato", name: "Arrotolato", price: 5.0, menuPrice: 8.5, menuDescription: "Arrotolato + bibita + patatine fritte", category: "kebab" },
-  { id: "kebab-piatto", name: "Piatto", price: 8.0, menuPrice: 9.5, menuDescription: "Piatto + lattina", category: "kebab", highlight: true },
-  { id: "kebab-falafel", name: "Falafel", price: 5.0, menuPrice: 8.5, menuDescription: KEBAB_MENU_DESC, category: "kebab" },
-  { id: "kebab-patatine", name: "Patatine Fritte", price: 2.0, category: "kebab", subGroup: "Extra" },
-  { id: "kebab-patatine-maxi", name: "Patatine Fritte Maxi", price: 4.0, category: "kebab", subGroup: "Extra" },
-  { id: "kebab-patatine-con-kebab", name: "Patatine Fritte con Kebab", price: 3.5, category: "kebab", subGroup: "Extra" },
-  { id: "kebab-patatine-con-kebab-maxi", name: "Patatine Fritte con Kebab Maxi", price: 6.9, category: "kebab", subGroup: "Extra" },
-  { id: "kebab-porzione", name: "Porzione Kebab", price: 5.0, category: "kebab", subGroup: "Extra" },
-  { id: "kebab-porzione-maxi", name: "Porzione Kebab Maxi", price: 9.5, category: "kebab", subGroup: "Extra" },
+  // KEBAB — Panini
+  { id: "kebab-panino",             name: "Panino",             price: 6.5, menuPrice: 10.5, menuDescription: KEBAB_MENU_DESC, category: "kebab", subGroup: "Panini" },
+  { id: "kebab-arrotolato",         name: "Arrotolato",         price: 6.5, menuPrice: 10.5, menuDescription: KEBAB_MENU_DESC, category: "kebab", subGroup: "Panini" },
+  { id: "kebab-panino-falafel",     name: "Panino Falafel",     price: 6.5, menuPrice: 10.5, menuDescription: KEBAB_MENU_DESC, category: "kebab", subGroup: "Panini" },
+  { id: "kebab-arrotolato-falafel", name: "Arrotolato Falafel", price: 6.5, menuPrice: 10.5, menuDescription: KEBAB_MENU_DESC, category: "kebab", subGroup: "Panini" },
+  { id: "kebab-hot-dog",            name: "Panino Hot Dog",     price: 4,   menuPrice: 7,    menuDescription: KEBAB_MENU_DESC, category: "kebab", subGroup: "Panini" },
+
+  // KEBAB — Piatti
+  { id: "piatto-pollo", name: "Piatto Pollo", price: 11, menuPrice: 12.5, menuDescription: PIATTO_MENU_DESC, category: "kebab", subGroup: "Piatti" },
+  { id: "piatto-kebab", name: "Piatto Kebab", price: 11, menuPrice: 12.5, menuDescription: PIATTO_MENU_DESC, category: "kebab", subGroup: "Piatti", highlight: true },
+  { id: "piatto-kofta", name: "Piatto Kofta", price: 12, menuPrice: 13.5, menuDescription: PIATTO_MENU_DESC, category: "kebab", subGroup: "Piatti" },
+
+  // KEBAB — Porzioni
+  { id: "kebab-patatine-con-kebab",      name: "Patatine Fritte con Kebab",      price: 5,   category: "kebab", subGroup: "Porzioni" },
+  { id: "kebab-patatine-con-kebab-maxi", name: "Patatine Fritte con Kebab Maxi", price: 7.5, category: "kebab", subGroup: "Porzioni" },
+  { id: "kebab-porzione",                name: "Porzione Kebab",                 price: 6,   category: "kebab", subGroup: "Porzioni" },
+  { id: "kebab-porzione-maxi",           name: "Porzione Kebab Maxi",            price: 11,  category: "kebab", subGroup: "Porzioni" },
+
+  // COSAMIA
+  { id: "cosamia-pollo", name: "Cosamia Pollo", price: 7,  menuPrice: 8.5,  menuDescription: "+ bibita", category: "cosamia" },
+  { id: "cosamia-kofta", name: "Cosamia Kofta", price: 8,  menuPrice: 9.5,  menuDescription: "+ bibita", category: "cosamia" },
+  { id: "cosamia-mixed", name: "Cosamia Mixed", price: 10, menuPrice: 11.5, menuDescription: "+ bibita", category: "cosamia", highlight: true },
 
   // BURGER
-  { id: "burger-hamburger", name: "Hamburger", price: 4.2, menuPrice: 7.2, category: "burger" },
-  { id: "burger-chicken", name: "Chicken Burger", price: 4.9, menuPrice: 7.9, category: "burger" },
-  { id: "burger-cheese", name: "Cheeseburger", price: 4.9, menuPrice: 7.9, category: "burger" },
-  { id: "burger-chicken-wrap", name: "Chicken Wrap", price: 5.0, menuPrice: 8.5, category: "burger" },
-  { id: "burger-double-cheese", name: "Double Cheeseburger", price: 5.5, menuPrice: 8.5, category: "burger", highlight: true },
-
-  // FRITTI
-  { id: "fritti-cheddar", name: "Cheddar Cheese", price: 4.5, category: "fritti" },
-  { id: "fritti-twisters", name: "Twisters", price: 4.5, category: "fritti" },
-  { id: "fritti-cheese-balls", name: "Cheese Balls", price: 4.5, category: "fritti" },
-  { id: "fritti-onion-rings", name: "Onion Rings", price: 4.5, category: "fritti" },
-  { id: "fritti-wings", name: "Wings", price: 4.5, category: "fritti" },
-  { id: "fritti-nuggets", name: "Nuggets", price: 4.5, category: "fritti" },
-  { id: "fritti-pop-corn", name: "Pop Corn", price: 4.5, category: "fritti" },
-  { id: "fritti-strips", name: "Strips", price: 4.5, category: "fritti" },
-  { id: "fritti-chele-granchio", name: "Chele di Granchio", price: 4.5, category: "fritti" },
-  { id: "fritti-falafel", name: "Falafel", price: 4.5, category: "fritti" },
-  { id: "fritti-cheese-stick", name: "Cheese Stick", price: 4.5, category: "fritti" },
-
-  // INSALATE
-  { id: "insalate-mixed", name: "Mixed Salad", price: 4.5, category: "insalate" },
-  { id: "insalate-chicken", name: "Chicken Salad", price: 6.5, category: "insalate" },
-  { id: "insalate-chicken-plat", name: "Chicken Plat", price: 8.0, category: "insalate", highlight: true },
+  { id: "burger-hamburger",     name: "Hamburger",          price: 5.5, menuPrice: 9.5,  menuDescription: KEBAB_MENU_DESC, category: "burger" },
+  { id: "burger-chicken",       name: "Chicken Burger",     price: 6,   menuPrice: 10,   menuDescription: KEBAB_MENU_DESC, category: "burger" },
+  { id: "burger-cheese",        name: "Cheese Burger",      price: 6,   menuPrice: 10,   menuDescription: KEBAB_MENU_DESC, category: "burger" },
+  { id: "burger-chicken-wrap",  name: "Chicken Wrap",       price: 6.5, menuPrice: 10.5, menuDescription: KEBAB_MENU_DESC, category: "burger" },
+  { id: "burger-double-cheese", name: "Double Cheeseburger", price: 7,   menuPrice: 11,   menuDescription: KEBAB_MENU_DESC, category: "burger", highlight: true },
 
   // PIZZE
-  { id: "pizza-margherita", name: "Margherita", description: "Pomodoro, mozzarella", price: 6.0, category: "pizze" },
-  { id: "pizza-marinara", name: "Marinara", description: "Pomodoro", price: 4.5, category: "pizze" },
-  { id: "pizza-royal-kebab", name: "Royal Kebab", description: "Kebab, mozzarella, pomodoro, insalata, cipolla, patatine, salse a piacere", price: 8.5, category: "pizze", highlight: true },
-  { id: "pizza-calzone-royal", name: "Calzone Royal Kebab", description: "Kebab, mozzarella, pomodoro, insalata, cipolla, patatine, salse a piacere", price: 8.5, category: "pizze", highlight: true },
-  { id: "pizza-chips", name: "Chips", description: "Pomodoro, mozzarella, patatine fritte", price: 6.9, category: "pizze" },
-  { id: "pizza-diavola", name: "Diavola", description: "Pomodoro, mozzarella, salamino piccante", price: 6.9, category: "pizze" },
-  { id: "pizza-napoli", name: "Napoli", description: "Pomodoro, mozzarella, acciughe", price: 6.9, category: "pizze" },
-  { id: "pizza-pugliese", name: "Pugliese", description: "Pomodoro, mozzarella, cipolla", price: 6.9, category: "pizze" },
-  { id: "pizza-wurstel", name: "Wurstel", description: "Pomodoro, mozzarella, wurstel", price: 6.9, category: "pizze" },
-  { id: "pizza-prosciutto", name: "Prosciutto", description: "Pomodoro, mozzarella, prosciutto", price: 6.9, category: "pizze" },
-  { id: "pizza-tonno", name: "Tonno", description: "Pomodoro, mozzarella, tonno", price: 6.9, category: "pizze" },
-  { id: "pizza-tonno-cipolla", name: "Tonno e Cipolla", description: "Pomodoro, mozzarella, tonno, cipolla", price: 7.5, category: "pizze" },
-  { id: "pizza-prosciutto-funghi", name: "Prosciutto e Funghi", description: "Pomodoro, mozzarella, prosciutto, funghi", price: 7.5, category: "pizze" },
-  { id: "pizza-salsiccia", name: "Salsiccia", description: "Pomodoro, mozzarella, salsiccia", price: 7.9, category: "pizze" },
-  { id: "pizza-siciliana", name: "Siciliana", description: "Pomodoro, mozzarella, acciughe, peperoni", price: 7.9, category: "pizze" },
-  { id: "pizza-bufala", name: "Bufala", description: "Pomodoro, mozzarella di bufala", price: 7.9, category: "pizze" },
-  { id: "pizza-gorgo-speck", name: "Gorgo e Speck", description: "Pomodoro, mozzarella, gorgonzola, speck", price: 7.9, category: "pizze" },
-  { id: "pizza-speck-brie", name: "Speck e Brie", description: "Pomodoro, mozzarella, speck, brie", price: 7.9, category: "pizze" },
-  { id: "pizza-4-formaggi", name: "4 Formaggi", description: "Mozzarella, fontina, gorgonzola, brie", price: 7.9, category: "pizze" },
-  { id: "pizza-carbonara", name: "Carbonara", description: "Pomodoro, mozzarella, uova, pancetta, pepe", price: 7.9, category: "pizze" },
-  { id: "pizza-vegetariana", name: "Vegetariana", description: "Pomodoro, mozzarella, misto verdure", price: 7.9, category: "pizze" },
-  { id: "pizza-stracchino-rucola", name: "Stracchino e Rucola", description: "Mozzarella, stracchino, rucola", price: 7.9, category: "pizze" },
-  { id: "pizza-capricciosa", name: "Capricciosa", description: "Pomodoro, mozzarella, funghi, prosciutto, olive, carciofi", price: 8.5, category: "pizze" },
-  { id: "pizza-4-stagioni", name: "4 Stagioni", description: "Pomodoro, mozzarella, prosciutto, funghi, olive, carciofi", price: 8.5, category: "pizze" },
-  { id: "pizza-rustica", name: "Rustica", description: "Pomodoro, mozzarella, salsiccia, peperoni, cipolla", price: 8.5, category: "pizze" },
-  { id: "pizza-hamburger", name: "Hamburger", description: "Pomodoro, mozzarella, hamburger, salsa barbecue, salsa burger", price: 8.5, category: "pizze" },
-  { id: "pizza-nuggets", name: "Nuggets", description: "Pomodoro, mozzarella, crocchette di pollo, salsa barbecue, salsa burger", price: 8.5, category: "pizze" },
-  { id: "pizza-gamberi", name: "Gamberi", description: "Pomodoro, mozzarella, gamberetti, salsa rosa, insalata verde", price: 8.5, category: "pizze" },
+  { id: "pizza-margherita",     name: "Margherita",         description: "Pomodoro, mozzarella",                                                   price: 6.5, category: "pizze" },
+  { id: "pizza-marinara",       name: "Marinara",           description: "Pomodoro",                                                               price: 5.5, category: "pizze" },
+  { id: "pizza-royal-kebab",    name: "Royal Kebab",        description: "Kebab, mozzarella, pomodoro, insalata, cipolla, patatine, salse a piacere", price: 11, category: "pizze", highlight: true },
+  { id: "pizza-calzone-royal",  name: "Calzone Royal Kebab", description: "Kebab, mozzarella, pomodoro, insalata, cipolla, patatine, salse a piacere", price: 11, category: "pizze", highlight: true },
+  { id: "pizza-chips",          name: "Chips",              description: "Pomodoro, mozzarella, patatine fritte",                                   price: 7.5, category: "pizze" },
+  { id: "pizza-diavola",        name: "Diavola",            description: "Pomodoro, mozzarella, salamino piccante",                                 price: 7.5, category: "pizze" },
+  { id: "pizza-pugliese",       name: "Pugliese",           description: "Pomodoro, mozzarella, cipolla",                                           price: 7.5, category: "pizze" },
+  { id: "pizza-wurstel",        name: "Wurstel",            description: "Pomodoro, mozzarella, wurstel",                                           price: 7.5, category: "pizze" },
+  { id: "pizza-prosciutto",     name: "Prosciutto",         description: "Pomodoro, mozzarella, prosciutto",                                        price: 7.5, category: "pizze" },
+  { id: "pizza-tonno",          name: "Tonno",              description: "Pomodoro, mozzarella, tonno",                                             price: 7.5, category: "pizze" },
+  { id: "pizza-tonno-cipolla",  name: "Tonno e Cipolla",    description: "Pomodoro, mozzarella, tonno, cipolla",                                    price: 8,   category: "pizze" },
+  { id: "pizza-nuggets",        name: "Nuggets",            description: "Pomodoro, mozzarella, crocchette di pollo, salsa a piacere",              price: 8,   category: "pizze" },
+  { id: "pizza-americana",      name: "Americana",          description: "Pomodoro, mozzarella, wurstel, patatine fritte",                          price: 8,   category: "pizze" },
+  { id: "pizza-vegetariana",    name: "Vegetariana",        description: "Pomodoro, mozzarella, misto verdure",                                     price: 9,   category: "pizze" },
+  { id: "pizza-capricciosa",    name: "Capricciosa",        description: "Pomodoro, mozzarella, prosciutto, funghi, olive, carciofi",               price: 9,   category: "pizze" },
+  { id: "pizza-4-stagioni",     name: "4 Stagioni",         description: "Pomodoro, mozzarella, prosciutto, funghi, olive, carciofi",               price: 9,   category: "pizze" },
+  { id: "pizza-4-formaggi",     name: "4 Formaggi",         description: "Pomodoro, mozzarella, brie, gorgonzola, edam",                            price: 9,   category: "pizze" },
 
-  // FAMIGLIA
-  { id: "fam-margherita", name: "Margherita Familiare", description: "Formato familiare", price: 15.0, category: "famiglia", subGroup: "Pizze Familiari" },
-  { id: "fam-farcita", name: "Farcita Familiare", description: "Formato familiare", price: 18.0, category: "famiglia", subGroup: "Pizze Familiari" },
-  { id: "fam-kebab", name: "Pizza Kebab Familiare", description: "Formato familiare", price: 21.0, category: "famiglia", subGroup: "Pizze Familiari", highlight: true },
-  { id: "taglio-margherita", name: "Margherita", description: "Al taglio", price: 2.0, category: "famiglia", subGroup: "Pizze al Taglio" },
-  { id: "taglio-farcita", name: "Farcita", description: "Al taglio", price: 2.5, category: "famiglia", subGroup: "Pizze al Taglio" },
-  { id: "taglio-farcita-kebab", name: "Farcita Kebab", description: "Al taglio", price: 3.0, category: "famiglia", subGroup: "Pizze al Taglio" },
+  // FAMILIARI & TAGLIO
+  { id: "fam-margherita",       name: "Margherita",    description: "Formato familiare", price: 17, category: "familiari", subGroup: "Pizze Familiari" },
+  { id: "fam-farcita",          name: "Farcita",       description: "Formato familiare", price: 21, category: "familiari", subGroup: "Pizze Familiari" },
+  { id: "fam-royal-kebab",      name: "Royal Kebab",   description: "Formato familiare", price: 25, category: "familiari", subGroup: "Pizze Familiari", highlight: true },
+  { id: "taglio-margherita",    name: "Margherita",    price: 2.5, menuPrice: 3.5, menuDescription: "+ bibita", category: "familiari", subGroup: "Pizze al Taglio" },
+  { id: "taglio-farcita-kebab", name: "Farcita Kebab", price: 4,   menuPrice: 5,   menuDescription: "+ bibita", category: "familiari", subGroup: "Pizze al Taglio" },
+
+  // FRITTI
+  { id: "fritti-cheddar",      name: "Cheddar Cheese", price: 5,   category: "fritti" },
+  { id: "fritti-cheese-balls", name: "Cheese Balls",   price: 6,   category: "fritti" },
+  { id: "fritti-onion-rings",  name: "Onion Rings",    price: 5,   category: "fritti" },
+  { id: "fritti-wings",        name: "Wings",          price: 5,   category: "fritti" },
+  { id: "fritti-nuggets",      name: "Nuggets",        price: 5,   category: "fritti" },
+  { id: "fritti-strips",       name: "Strips",         price: 5,   category: "fritti" },
+  { id: "fritti-falafel",      name: "Falafel",        price: 5,   category: "fritti" },
+  { id: "fritti-cheese-stick", name: "Cheese Stick",   price: 5,   category: "fritti" },
+  { id: "fritti-patatine-s",   name: "Patatine S",     price: 2.5, category: "fritti" },
+  { id: "fritti-patatine-l",   name: "Patatine L",     price: 4.5, category: "fritti" },
+
+  // INSALATE
+  { id: "insalate-mixed",   name: "Mixed Salad",    price: 5.9, category: "insalate" },
+  { id: "insalate-chicken", name: "Chicken Salad",  price: 7.5, category: "insalate", highlight: true },
+  { id: "insalate-tonno",   name: "Salad al Tonno", price: 6.9, category: "insalate" },
+
+  // BIBITE & EXTRA
+  { id: "bibite-acqua",        name: "Acqua 50cl",           price: 0.6, category: "bibite", subGroup: "Bibite" },
+  { id: "bibite-gassata",      name: "Bibita gassata 33cl",  price: 1,   category: "bibite", subGroup: "Bibite" },
+  { id: "bibite-fanta-exotic", name: "Fanta Exotic 33cl",    price: 1.8, category: "bibite", subGroup: "Bibite" },
+  { id: "bibite-relax",        name: "Relax 50cl",           price: 1.8, category: "bibite", subGroup: "Bibite" },
+  { id: "bibite-hawai",        name: "Hawai - Pommes 33cl",  price: 1.8, category: "bibite", subGroup: "Bibite" },
+  { id: "bibite-redbull",      name: "Red Bull",             price: 1.8, category: "bibite", subGroup: "Bibite" },
+  { id: "supp-cheddar",        name: "Cheddar",              price: 1,   category: "bibite", subGroup: "Supplementi" },
+  { id: "supp-mozzarella",     name: "Mozzarella",           price: 1,   category: "bibite", subGroup: "Supplementi" },
+  { id: "supp-algerina",       name: "Salsa Algerina",       price: 0.5, category: "bibite", subGroup: "Supplementi" },
+  { id: "supp-salsa",          name: "Salsa a piacere",      price: 0.3, category: "bibite", subGroup: "Supplementi" },
 ];
 
 const formatPrice = (price) => `€ ${price.toFixed(2).replace(".", ",")}`;
@@ -138,6 +160,8 @@ const RATING_BREAKDOWN = [
 const SVG_SHOPPING_BAG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><line x1="3" x2="21" y1="6" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>`;
 const SVG_SPARKLES = `<svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/></svg>`;
 const SVG_QUOTE = `<svg width="36" height="36" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"/></svg>`;
+const SVG_EYE = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>`;
+const SVG_EYE_OFF = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24"/><path d="M10.73 5.08A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61"/><line x1="2" x2="22" y1="2" y2="22"/></svg>`;
 
 const starSvg = (filled, size = 16) => `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="${filled ? 'currentColor' : 'rgba(247,247,247,0.1)'}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="${filled ? 'star-filled' : 'star-empty'}"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
 
@@ -180,9 +204,63 @@ function initNavbar() {
   });
 
   drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeDrawer));
+
+  const closeBtn = document.getElementById('drawer-close');
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
 }
 
 /* ============ MENU ============ */
+const EXPANDED_CATS = new Set();
+const MENU_LIMIT = 6;
+
+function renderMenuItem(item) {
+  const topBadge = item.highlight ? `<div class="menu-item-top">${SVG_SPARKLES} Top</div>` : '';
+  const desc = item.description ? `<p class="menu-item-desc">${item.description}</p>` : '';
+  const orderBtn = `<a href="${DELIVEROO_URL}" target="_blank" rel="noopener noreferrer" class="menu-order">${SVG_SHOPPING_BAG} Ordina</a>`;
+
+  if (item.sizes) {
+    const rows = item.sizes.map((s) => `
+      <div class="size-row">
+        <span class="size-label">${s.label}</span>
+        <span class="size-price">${formatPrice(s.price)}</span>
+        <span class="size-sep">·</span>
+        <span class="size-menu">Menù ${formatPrice(s.menuPrice)}</span>
+      </div>
+    `).join('');
+    const menuDesc = item.menuDescription ? `<p class="menu-price-menu-desc">Menù ${item.menuDescription}</p>` : '';
+    return `
+      <article class="menu-item">
+        ${topBadge}
+        <h3>${item.name}</h3>
+        ${desc}
+        <div class="menu-sizes">${rows}</div>
+        ${menuDesc}
+        <div class="menu-item-bottom menu-item-bottom-end">${orderBtn}</div>
+      </article>
+    `;
+  }
+
+  return `
+    <article class="menu-item">
+      ${topBadge}
+      <h3>${item.name}</h3>
+      ${desc}
+      <div class="menu-item-bottom">
+        <div>
+          <span class="menu-price">${formatPrice(item.price)}</span>
+          ${item.menuPrice !== undefined ? `
+            <span class="menu-price-menu">
+              Menù: ${formatPrice(item.menuPrice)}
+              ${item.menuDescription ? `<span class="menu-price-menu-desc">${item.menuDescription}</span>` : ''}
+            </span>
+          ` : ''}
+        </div>
+        ${orderBtn}
+      </div>
+    </article>
+  `;
+}
+
 function renderMenu(activeId) {
   const tabs = document.getElementById('menu-tabs');
   const panel = document.getElementById('menu-items');
@@ -191,7 +269,11 @@ function renderMenu(activeId) {
     <button type="button" class="menu-tab ${c.id === activeId ? 'active' : ''}" data-cat="${c.id}" role="tab" aria-selected="${c.id === activeId}">${c.label}</button>
   `).join('');
 
-  const items = MENU_ITEMS.filter((i) => i.category === activeId);
+  const allItems = MENU_ITEMS.filter((i) => i.category === activeId);
+  const expanded = EXPANDED_CATS.has(activeId);
+  const hasMore = allItems.length > MENU_LIMIT;
+  const items = hasMore && !expanded ? allItems.slice(0, MENU_LIMIT) : allItems;
+
   const groups = new Map();
   for (const item of items) {
     const key = item.subGroup || '__default__';
@@ -199,35 +281,34 @@ function renderMenu(activeId) {
     groups.get(key).push(item);
   }
 
-  const groupHtml = Array.from(groups.entries()).map(([key, items]) => {
+  const groupHtml = Array.from(groups.entries()).map(([key, groupItems]) => {
     const title = key === '__default__' ? '' : `<h3 class="menu-subgroup">— ${key}</h3>`;
-    const cards = items.map((item) => `
-      <article class="menu-item">
-        ${item.highlight ? `<div class="menu-item-top">${SVG_SPARKLES} Top</div>` : ''}
-        <h3>${item.name}</h3>
-        ${item.description ? `<p class="menu-item-desc">${item.description}</p>` : ''}
-        <div class="menu-item-bottom">
-          <div>
-            <span class="menu-price">${formatPrice(item.price)}</span>
-            ${item.menuPrice !== undefined ? `
-              <span class="menu-price-menu">
-                Menù: ${formatPrice(item.menuPrice)}
-                ${item.menuDescription ? `<span class="menu-price-menu-desc">${item.menuDescription}</span>` : ''}
-              </span>
-            ` : ''}
-          </div>
-          <a href="${DELIVEROO_URL}" target="_blank" rel="noopener noreferrer" class="menu-order">${SVG_SHOPPING_BAG} Ordina</a>
-        </div>
-      </article>
-    `).join('');
+    const cards = groupItems.map(renderMenuItem).join('');
     return `<div class="menu-group">${title}<div class="menu-items-grid">${cards}</div></div>`;
   }).join('');
 
-  panel.innerHTML = groupHtml;
+  let toggleHtml = '';
+  if (hasMore) {
+    const hiddenCount = allItems.length - MENU_LIMIT;
+    const icon = expanded ? SVG_EYE_OFF : SVG_EYE;
+    const label = expanded ? 'Mostra meno' : `Mostra altri ${hiddenCount}`;
+    toggleHtml = `<button type="button" class="menu-toggle-all" data-cat="${activeId}">${icon}<span>${label}</span></button>`;
+  }
+
+  panel.innerHTML = groupHtml + toggleHtml;
 
   tabs.querySelectorAll('.menu-tab').forEach((btn) => {
     btn.addEventListener('click', () => renderMenu(btn.dataset.cat));
   });
+
+  const toggleBtn = panel.querySelector('.menu-toggle-all');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      if (EXPANDED_CATS.has(activeId)) EXPANDED_CATS.delete(activeId);
+      else EXPANDED_CATS.add(activeId);
+      renderMenu(activeId);
+    });
+  }
 }
 
 /* ============ HOURS ============ */
