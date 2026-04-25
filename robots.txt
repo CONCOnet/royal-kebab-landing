@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /screenRecensioni/
+
+Sitemap: https://www.royalkebabbra.it/sitemap.xml
