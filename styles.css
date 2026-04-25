@@ -1087,8 +1087,11 @@ body.no-scroll { overflow: hidden; }
 .footer-credits {
   margin-top: 0.25rem;
 }
-.footer-credits a {
-  color: var(--primary, #d41111);
+.footer-credits a,
+.footer-credits a:visited,
+.footer-credits a:hover,
+.footer-credits a:active {
+  color: #d41111;
   text-decoration: underline;
   text-underline-offset: 2px;
   font-weight: 600;
