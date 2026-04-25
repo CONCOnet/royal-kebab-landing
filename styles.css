@@ -1084,6 +1084,18 @@ body.no-scroll { overflow: hidden; }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+.footer-credits {
+  margin-top: 0.25rem;
+}
+.footer-credits a {
+  color: var(--primary, #d41111);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+.footer-credits a:hover {
+  opacity: 0.85;
+}
 
 /* ============ REVEAL (scroll animations) ============ */
 .reveal {
